@@ -24,7 +24,7 @@
             else {
                 <p title="@prop.Description">
                     @if (!string.IsNullOrEmpty(prop.GetDisplayName())) {
-                        @Html.Label(prop.PropertyName, prop.GetDisplayName() + ":")<br />
+                        @Html.Label(prop.PropertyName, prop.GetDisplayName())<br />
                     }
                     @Html.Editor(prop.PropertyName)
                 </p>

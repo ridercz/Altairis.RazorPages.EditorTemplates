@@ -2,7 +2,9 @@
     var value = string.Empty;
     if (ViewData.Model != null) {
         var ts = (TimeSpan)ViewData.Model;
-        value = ts.ToString(@"hh\:mm");
+        value = ts.ToString(@"HH\:mm");
     }
-    @Html.TextBox("", value, new { @class = "textbox", type = "time" })
+    ViewData["type"] = "text";
+    ViewData["additionalCssClass"] = "time";
+    @Html.Partial("HtmlInput.cshtml")
 }

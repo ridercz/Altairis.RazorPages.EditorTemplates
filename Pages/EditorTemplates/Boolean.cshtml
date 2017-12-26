@@ -10,9 +10,9 @@
             new SelectListItem {Text = "True", Value = "true", Selected = value.HasValue && value.Value},
             new SelectListItem {Text = "False", Value = "false", Selected = value.HasValue && !value.Value},
         };
-        @Html.DropDownList("", triStateValues, new { @class = "dropdown" })
+        @Html.DropDownList("", triStateValues)
     }
     else {
-        @Html.CheckBox("", value ?? false, new { @class = "checkbox" })
+        @Html.CheckBox("", value ?? false)
     }
 }
