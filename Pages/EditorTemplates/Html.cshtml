@@ -1,0 +1,65 @@
+﻿@{
+    Layout = "_Layout.cshtml";
+    var toolbarId = ViewData.TemplateInfo.GetFullHtmlFieldId("toolbar");
+}
+<div id="@toolbarId" class="wysihtml5-toolbar" style="display:none">
+    <span class="tgroup">
+        <a data-wysihtml5-action="change_view" title="Přepnout HTML"><i class="fa fa-fw fa-file-code-o"></i></a>
+    </span>
+    <span class="tgroup">
+        <a data-wysihtml5-command="undo" title="Zpět"><i class="fa fa-fw fa-undo"></i></a>
+        <a data-wysihtml5-command="redo" title="Znovu"><i class="fa fa-fw fa-repeat"></i></a>
+    </span>
+    <span class="tgroup">
+        <a data-wysihtml5-command="bold" title="Tučné"><i class="fa fa-fw fa-bold"></i></a>
+        <a data-wysihtml5-command="italic" title="Kurzíva"><i class="fa fa-fw fa-italic"></i></a>
+        <a data-wysihtml5-command="formatInline" data-wysihtml5-command-value="code" title="Zdrojový kód"><i class="fa fa-fw fa-code"></i></a>
+        <a data-wysihtml5-command="formatInline" data-wysihtml5-command-value="sup" title="Horní index"><i class="fa fa-fw fa-superscript"></i></a>
+        <a data-wysihtml5-command="formatInline" data-wysihtml5-command-value="sub" title="Dolní index"><i class="fa fa-fw fa-subscript"></i></a>
+    </span>
+    <span class="tgroup">
+        <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="p" title="Odstavec"><i class="fa fa-fw fa-paragraph"></i></a>
+        <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="blockquote" title="Citace"><i class="fa fa-fw fa-comment-o"></i></a>
+        <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="pre" title="Předformátovaný text"><i class="fa fa-fw fa-edit"></i></a>
+        <a data-wysihtml5-command="insertOrderedList" title="Číslovaný seznam"><i class="fa fa-fw fa-list-ol"></i></a>
+        <a data-wysihtml5-command="insertUnorderedList" title="Seznam s odrážkami"><i class="fa fa-fw fa-list-ul"></i></a>
+        <a data-wysihtml5-command="indentList"><i class="fa fa-fw fa-indent"></i></a>
+        <a data-wysihtml5-command="outdentList"><i class="fa fa-fw fa-outdent"></i></a>
+    </span>
+    <span class="tgroup">
+        <a data-wysihtml5-command="createLink" title="Odkaz"><i class="fa fa-fw fa-link"></i></a>
+        <a data-wysihtml5-command="removeLink" title="Odstranit odkaz"><i class="fa fa-fw fa-chain-broken"></i></a>
+        <a data-wysihtml5-command="insertImage" title="Vložit obrázek"><i class="fa fa-fw fa-picture-o"></i></a>
+    </span>
+    <span class="tgroup">
+        <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2" title="Nadpis 2. úrovně">H2</a>
+        <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h3" title="Nadpis 3. úrovně">H3</a>
+        <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h4" title="Nadpis 4. úrovně">H4</a>
+        <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h5" title="Nadpis 5. úrovně">H5</a>
+    </span>
+    <div class="wysihtml5-dialog" data-wysihtml5-dialog="createLink" style="display: none;">
+        <label>
+            <i class="fa fa-fw fa-link" title="Adresa"></i>
+            <input data-wysihtml5-dialog-field="href" type="url" style="width:300px;" placeholder="http://www.example.com/" />
+        </label>
+        <a data-wysihtml5-dialog-action="save"><i class="fa fa-fw fa-check-circle"></i></a>
+        <a data-wysihtml5-dialog-action="cancel"><i class="fa fa-fw fa-times-circle"></i></a>
+    </div>
+    <div class="wysihtml5-dialog" data-wysihtml5-dialog="insertImage" style="display: none;">
+        <label>
+            <i class="fa fa-fw fa-picture-o" title="Adresa obrázku"></i>
+            <input data-wysihtml5-dialog-field="src" type="url" style="width:300px;" placeholder="http://www.example.com/image.jpg" />
+        </label>
+        <label>
+            <i class="fa fa-fw fa-align-left" title="Obtékání"></i>
+            <select data-wysihtml5-dialog-field="className">
+                <option value="">neobtékat</option>
+                <option value="fl">obtékat zprava</option>
+                <option value="fr">obtékat zleva</option>
+            </select>
+        </label>
+        <a data-wysihtml5-dialog-action="save"><i class="fa fa-fw fa-check-circle"></i></a>
+        <a data-wysihtml5-dialog-action="cancel"><i class="fa fa-fw fa-times-circle"></i></a>
+    </div>
+</div>
+@Html.TextArea("", ViewData.TemplateInfo.FormattedModelValue.ToString(), 0, 0, new { @class = "textbox html", data_wysihtml5_toolbarid = toolbarId })

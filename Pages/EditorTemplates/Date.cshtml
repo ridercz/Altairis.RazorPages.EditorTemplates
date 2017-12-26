@@ -1,0 +1,13 @@
+﻿@{
+    var value = string.Empty;
+    if (ViewData.Model != null) {
+        var dtVal = (DateTime)ViewData.Model;
+        if (dtVal > DateTime.MinValue) {
+            value = dtVal.ToString("yyyy-MM-dd");
+        }
+    }
+    ViewData.TemplateInfo.FormattedModelValue = value;
+    ViewData["type"] = "text";
+    ViewData["additionalCssClass"] = "date";
+    @Html.Partial("HtmlInput.cshtml")
+}

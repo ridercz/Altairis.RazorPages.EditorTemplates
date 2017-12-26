@@ -1,0 +1,8 @@
+﻿@{
+    var value = string.Empty;
+    if (ViewData.Model != null) {
+        var ts = (TimeSpan)ViewData.Model;
+        value = ts.ToString(@"hh\:mm");
+    }
+    @Html.TextBox("", value, new { @class = "textbox", type = "time" })
+}

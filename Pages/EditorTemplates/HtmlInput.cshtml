@@ -1,0 +1,9 @@
+﻿@{
+    this.Layout = "_Layout.cshtml";
+    var htmlAttributes = new {
+        @class = string.Join(" ", "textbox", ViewData["additionalCssClass"]),
+        type = ViewData["type"],
+        placeholder = ViewData.ModelMetadata.Placeholder,
+    };
+    @Html.TextBox("", ViewData.TemplateInfo.FormattedModelValue, htmlAttributes)
+}
